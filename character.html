@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>Joke Bear 角色预览 | Character Preview</title>
+    <script type="module" crossorigin src="./assets/character-C7C0fVMM.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/Config-Dl2nHbYE.js">
+    <link rel="stylesheet" crossorigin href="./assets/character-h--f5acG.css">
+  </head>
+  <body class="preview-body">
+    <canvas id="stage"></canvas>
+    <div id="bar">
+      <div class="bar-group">
+        <span class="bar-label">视角</span>
+        <button data-view="front" class="pbtn active">正面</button>
+        <button data-view="back" class="pbtn">背面</button>
+        <button data-view="left" class="pbtn">左侧</button>
+        <button data-view="right" class="pbtn">右侧</button>
+        <button data-view="oblique" class="pbtn">45°</button>
+        <label class="pcheck"><input type="checkbox" id="auto-rotate" /> 自动旋转</label>
+      </div>
+      <div class="bar-group">
+        <span class="bar-label">动画</span>
+        <select id="anim">
+          <option value="idle" selected>Idle 待机</option>
+          <option value="run">Run 奔跑</option>
+          <option value="jump">Jump 跳跃</option>
+          <option value="slide">Slide 滑行</option>
+          <option value="dodge">Dodge 闪避</option>
+          <option value="hit">Hit 受击</option>
+          <option value="victory">Victory 庆祝</option>
+        </select>
+        <span class="bar-label">表情</span>
+        <select id="expr">
+          <option value="default" selected>默认</option>
+          <option value="smirk">得意坏笑</option>
+          <option value="surprise">惊讶</option>
+          <option value="laugh">开心大笑</option>
+          <option value="angry">生气不服</option>
+          <option value="hit">受击搞笑</option>
+        </select>
+        <span class="bar-label">造型</span>
+        <select id="skin"></select>
+      </div>
+      <div class="bar-group">
+        <span class="bar-label">缩放</span>
+        <input type="range" id="zoom" min="1.6" max="6" step="0.05" value="3.6" />
+        <span id="tris" class="bar-stat">— tris</span>
+      </div>
+    </div>
+    <div id="hint">拖拽旋转视角 · 滚轮缩放</div>
+  </body>
+</html>

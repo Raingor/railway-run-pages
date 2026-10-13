@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="theme-color" content="#1b2340" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>霓虹轨道：无限冲刺 | Neon Rail Runner</title>
+    <script type="module" crossorigin src="./assets/main-DjboxxCr.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/Config-Dl2nHbYE.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-CGLMj6W5.css">
+  </head>
+  <body>
+    <canvas id="game"></canvas>
+    <div id="ui">
+      <!-- HUD -->
+      <div id="hud" class="screen hidden">
+        <div class="hud-top">
+          <div class="hud-left">
+            <div class="hud-score" id="hud-score">0</div>
+            <div class="hud-sub" id="hud-distance">0 m</div>
+          </div>
+          <div class="hud-right">
+            <div class="hud-coins"><span class="coin-dot"></span><span id="hud-coins">0</span></div>
+            <button id="btn-pause" class="icon-btn" aria-label="暂停">❚❚</button>
+          </div>
+        </div>
+        <div class="hud-powerups" id="hud-powerups"></div>
+        <div class="hud-hints" id="hud-hints">← → 变道 · ↑ 跳跃 · ↓ 翻滚 · Esc 暂停</div>
+      </div>
+
+      <!-- Main menu -->
+      <div id="menu" class="screen">
+        <div class="panel menu-panel">
+          <div class="title-wrap">
+            <h1 class="game-title">霓虹轨道</h1>
+            <div class="game-subtitle">无限冲刺 · NEON RAIL RUNNER</div>
+            <div class="bear-tag">主角:JOKE BEAR</div>
+          </div>
+          <div class="menu-stats">
+            <div class="stat-chip">最高分 <b id="menu-best">0</b></div>
+            <div class="stat-chip">金币 <b id="menu-coins">0</b></div>
+          </div>
+          <div class="menu-buttons">
+            <button id="btn-start" class="btn btn-primary">开始游戏</button>
+            <button id="btn-shop" class="btn">造型商店</button>
+            <button id="btn-missions" class="btn">任务列表</button>
+            <button id="btn-settings" class="btn">设置</button>
+          </div>
+          <div class="menu-skin" id="menu-skin-name">当前造型:经典 Joke Bear</div>
+        </div>
+      </div>
+
+      <!-- Shop -->
+      <div id="shop" class="screen hidden">
+        <div class="panel shop-panel">
+          <div class="panel-head">
+            <h2>造型商店</h2>
+            <div class="stat-chip">金币 <b id="shop-coins">0</b></div>
+            <button class="icon-btn" id="btn-shop-close" aria-label="关闭">✕</button>
+          </div>
+          <div class="skin-grid" id="skin-grid"></div>
+          <h3 class="upgrade-heading">道具升级 · 永久生效</h3>
+          <div class="upgrade-grid" id="upgrade-grid"></div>
+        </div>
+      </div>
+
+      <!-- Full 3D preview of any skin before purchase -->
+      <div id="tryon" class="screen hidden">
+        <div class="tryon-controls">
+          <span id="tryon-name"></span>
+          <button id="btn-tryon-back" class="btn btn-primary">返回商店</button>
+        </div>
+      </div>
+
+      <!-- Missions -->
+      <div id="missions" class="screen hidden">
+        <div class="panel shop-panel">
+          <div class="panel-head">
+            <h2>任务列表</h2>
+            <button class="icon-btn" id="btn-missions-close" aria-label="关闭">✕</button>
+          </div>
+          <div class="mission-list" id="mission-list"></div>
+        </div>
+      </div>
+
+      <!-- Pause -->
+      <div id="pause" class="screen hidden">
+        <div class="panel">
+          <h2>暂停中</h2>
+          <div class="menu-buttons">
+            <button id="btn-resume" class="btn btn-primary">继续游戏</button>
+            <button id="btn-restart" class="btn">重新开始</button>
+            <button id="btn-pause-settings" class="btn">设置</button>
+            <button id="btn-quit" class="btn">返回主菜单</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Game over -->
+      <div id="gameover" class="screen hidden">
+        <div class="panel">
+          <h2 id="go-title">游戏结束</h2>
+          <div class="go-record hidden" id="go-record">新纪录!</div>
+          <div class="go-stats">
+            <div class="go-row"><span>最终分数</span><b id="go-score">0</b></div>
+            <div class="go-row"><span>本局距离</span><b id="go-distance">0 m</b></div>
+            <div class="go-row"><span>本局金币</span><b id="go-coins">0</b></div>
+            <div class="go-row"><span>历史最高</span><b id="go-best">0</b></div>
+          </div>
+          <div class="menu-buttons">
+            <button id="btn-again" class="btn btn-primary">再玩一次</button>
+            <button id="btn-home" class="btn">返回主菜单</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Settings -->
+      <div id="settings" class="screen hidden">
+        <div class="panel">
+          <div class="panel-head">
+            <h2>设置</h2>
+            <button class="icon-btn" id="btn-settings-close" aria-label="关闭">✕</button>
+          </div>
+          <div class="setting-row"><label for="set-music">背景音乐</label><input type="range" id="set-music" min="0" max="1" step="0.05" /></div>
+          <div class="setting-row"><label for="set-sfx">游戏音效</label><input type="range" id="set-sfx" min="0" max="1" step="0.05" /></div>
+          <div class="setting-row"><label for="set-quality">画质等级</label>
+            <select id="set-quality">
+              <option value="low">低</option>
+              <option value="medium">中</option>
+              <option value="high">高</option>
+            </select>
+          </div>
+          <div class="setting-row"><label for="set-shadows">阴影</label><input type="checkbox" id="set-shadows" /></div>
+          <div class="setting-row"><label for="set-shake">镜头震动</label><input type="checkbox" id="set-shake" /></div>
+          <div class="setting-row"><label for="set-hints">操作提示</label><input type="checkbox" id="set-hints" /></div>
+        </div>
+      </div>
+
+      <div id="toasts"></div>
+      <div id="debug" class="hidden"></div>
+    </div>
+  </body>
+</html>
