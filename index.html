@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#1b2340" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>霓虹轨道：无限冲刺 | Neon Rail Runner</title>
-    <script type="module" crossorigin src="./assets/main-B2IuNj4K.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/Config-B9qvfV-e.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-BN6eNotR.css">
+    <script type="module" crossorigin src="./assets/main-DmWbeAtd.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/Config-C717PIw-.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-KXGhpDts.css">
   </head>
   <body>
     <canvas id="game"></canvas>
@@ -68,8 +68,18 @@
       <!-- Full 3D preview of any skin before purchase -->
       <div id="tryon" class="screen hidden">
         <div class="tryon-controls">
-          <span id="tryon-name"></span>
-          <button id="btn-tryon-back" class="btn btn-primary">返回商店</button>
+          <div class="tryon-navigation">
+            <button id="btn-tryon-prev" class="icon-btn" aria-label="上一套服装">‹</button>
+            <span id="tryon-name" aria-live="polite"></span>
+            <button id="btn-tryon-next" class="icon-btn" aria-label="下一套服装">›</button>
+          </div>
+          <div class="tryon-purchase">
+            <div class="tryon-actions">
+              <button id="btn-tryon-back" class="btn">返回商店</button>
+              <button id="btn-tryon-buy" class="btn btn-primary">立即购买</button>
+            </div>
+            <span id="tryon-notice" class="tryon-notice hidden" aria-live="polite"></span>
+          </div>
         </div>
       </div>
 
