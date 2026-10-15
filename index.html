@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#1b2340" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>霓虹轨道：无限冲刺 | Neon Rail Runner</title>
-    <script type="module" crossorigin src="./assets/main-Capxgf26.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/Config-DOdNeEoG.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-DXfY71C5.css">
+    <script type="module" crossorigin src="./assets/main-BIihTffT.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/Config-BfzWF_NK.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-CocBluAi.css">
   </head>
   <body>
     <canvas id="game"></canvas>
@@ -26,6 +26,7 @@
             <button id="btn-pause" class="icon-btn" aria-label="暂停">❚❚</button>
           </div>
         </div>
+        <div id="hud-feedback" class="hud-feedback hidden" role="status" aria-live="polite"></div>
         <div class="hud-powerups" id="hud-powerups"></div>
         <div class="hud-hints" id="hud-hints">← → 变道 · ↑ 跳跃 · ↓ 翻滚 · Esc 暂停</div>
       </div>
@@ -88,6 +89,7 @@
             <span id="tryon-name" aria-live="polite"></span>
             <button id="btn-tryon-next" class="icon-btn" aria-label="下一个">›</button>
           </div>
+          <p id="tryon-personality" class="tryon-personality"></p>
           <div class="tryon-purchase">
             <div class="tryon-actions">
               <button id="btn-tryon-back" class="btn">返回商店</button>
@@ -126,6 +128,7 @@
       <div id="gameover" class="screen hidden">
         <div class="panel">
           <h2 id="go-title">游戏结束</h2>
+          <p id="go-caption" class="go-caption"></p>
           <div class="go-record hidden" id="go-record">新纪录!</div>
           <div class="go-stats">
             <div class="go-row"><span>最终分数</span><b id="go-score">0</b></div>
