@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#1b2340" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>霓虹轨道：无限冲刺 | Neon Rail Runner</title>
-    <script type="module" crossorigin src="./assets/main-DZnj5dk5.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/Config-BKtyqXob.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-D0L2P0TV.css">
+    <script type="module" crossorigin src="./assets/main-BkKI1pp_.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/Config-2uCpwMhK.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-CkuR28aO.css">
   </head>
   <body>
     <canvas id="game"></canvas>
@@ -27,6 +27,8 @@
           </div>
         </div>
         <div id="hud-feedback" class="hud-feedback hidden" role="status" aria-live="polite"></div>
+        <div id="hud-goal" class="hud-goal"></div>
+        <div id="hud-story" class="hud-story hidden" role="status" aria-live="polite"><b id="hud-story-title"></b><span id="hud-story-text"></span></div>
         <div class="hud-powerups" id="hud-powerups"></div>
         <div class="hud-hints" id="hud-hints">← → 变道 · ↑ 跳跃 · ↓ 翻滚 · Esc 暂停</div>
       </div>
@@ -47,10 +49,12 @@
             <button id="btn-start" class="btn btn-primary">开始游戏</button>
             <button id="btn-shop" class="btn">商店</button>
             <button id="btn-missions" class="btn">任务列表</button>
+            <button id="btn-collection" class="btn">收藏册</button>
             <button id="btn-settings" class="btn">设置</button>
           </div>
           <div class="menu-skin" id="menu-skin-name">当前造型:经典 Joke Bear</div>
           <div class="menu-clock" id="menu-clock"></div>
+          <div class="menu-goal" id="menu-goal"></div>
         </div>
       </div>
 
@@ -108,7 +112,17 @@
             <h2>任务列表</h2>
             <button class="icon-btn" id="btn-missions-close" aria-label="关闭">✕</button>
           </div>
+          <p id="mission-short-goal" class="short-goal-ticket"></p>
           <div class="mission-list" id="mission-list"></div>
+        </div>
+      </div>
+
+      <!-- Pause -->
+      <div id="collection" class="screen hidden">
+        <div class="panel shop-panel collection-panel">
+          <div class="panel-head"><h2>站台纪念册</h2><button class="icon-btn" id="btn-collection-close" aria-label="关闭收藏册">✕</button></div>
+          <p class="collection-intro">每一趟都有点故事。解锁动作，带回站台展示。</p>
+          <div id="collection-grid" class="collection-grid"></div>
         </div>
       </div>
 
@@ -130,6 +144,7 @@
         <div class="panel">
           <h2 id="go-title">游戏结束</h2>
           <p id="go-caption" class="go-caption"></p>
+          <div id="go-adventure" class="go-adventure"></div>
           <div class="go-record hidden" id="go-record">新纪录!</div>
           <div class="go-stats">
             <div class="go-row"><span>最终分数</span><b id="go-score">0</b></div>
