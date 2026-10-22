@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#1b2340" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>霓虹轨道：无限冲刺 | Neon Rail Runner</title>
-    <script type="module" crossorigin src="./assets/main-dRv0RQi7.js"></script>
-    <link rel="modulepreload" crossorigin href="./assets/Config-n4Q9eAKn.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-CesBe3zD.css">
+    <script type="module" crossorigin src="./assets/main-DfsEvUV7.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/Config-k3nP2x9x.js">
+    <link rel="stylesheet" crossorigin href="./assets/main-tAZXagO7.css">
   </head>
   <body>
     <canvas id="game"></canvas>
@@ -28,6 +28,11 @@
         </div>
         <div id="hud-feedback" class="hud-feedback hidden" role="status" aria-live="polite"></div>
         <div id="hud-goal" class="hud-goal"></div>
+        <div id="hud-trip" class="trip-hud" hidden>
+          <div class="trip-hud-heading"><b id="trip-stage"></b><span id="trip-clock"></span></div>
+          <div class="trip-progress"><i id="trip-progress"></i></div>
+          <p id="trip-cargo"></p><p id="trip-next"></p>
+        </div>
         <div id="hud-story" class="hud-story hidden" role="status" aria-live="polite"><b id="hud-story-title"></b><span id="hud-story-text"></span></div>
         <div class="hud-powerups" id="hud-powerups"></div>
         <div class="hud-hints" id="hud-hints">← → 变道 · ↑ 跳跃 · ↓ 翻滚 · Esc 暂停</div>
@@ -46,7 +51,8 @@
             <div class="stat-chip">金币 <b id="menu-coins">0</b></div>
           </div>
           <div class="menu-buttons">
-            <button id="btn-start" class="btn btn-primary">开始游戏</button>
+            <button id="btn-start" class="btn btn-primary mode-btn">无尽冲刺<small>追纪录 · 自由跑</small></button>
+            <button id="btn-trip" class="btn mode-btn trip-start">三站旅行<small>90秒 · 接单与寄存</small></button>
             <button id="btn-shop" class="btn">商店</button>
             <button id="btn-missions" class="btn">任务列表</button>
             <button id="btn-collection" class="btn">收藏册</button>
@@ -142,6 +148,7 @@
           <h2 id="go-title">游戏结束</h2>
           <p id="go-caption" class="go-caption"></p>
           <div id="go-adventure" class="go-adventure"></div>
+          <div id="go-trip" class="trip-postcards" hidden></div>
           <div class="go-record hidden" id="go-record">新纪录!</div>
           <div class="go-stats">
             <div class="go-row"><span>最终分数</span><b id="go-score">0</b></div>
