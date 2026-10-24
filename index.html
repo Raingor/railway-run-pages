@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#251b29" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>霓虹轨道 · 万圣奇妙夜 | Halloween Express</title>
-    <script type="module" crossorigin src="./assets/main-C7TaWcxY.js"></script>
+    <script type="module" crossorigin src="./assets/main-DIcup29Q.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/Config-rek3DUzH.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-C_95mfdA.css">
+    <link rel="stylesheet" crossorigin href="./assets/main-REsH2q4I.css">
   </head>
   <body>
     <canvas id="game"></canvas>
@@ -51,8 +51,7 @@
             <div class="stat-chip">金币 <b id="menu-coins">0</b></div>
           </div>
           <div class="menu-buttons">
-            <button id="btn-start" class="btn btn-primary mode-btn">无尽冲刺<small>追纪录 · 自由跑</small></button>
-            <button id="btn-trip" class="btn mode-btn trip-start">三站旅行<small>90秒 · 骑车送单与寄存</small></button>
+            <button id="btn-start" class="btn btn-primary" aria-haspopup="dialog" aria-controls="mode-picker" aria-expanded="false">开始游戏</button>
             <button id="btn-shop" class="btn">商店</button>
             <button id="btn-missions" class="btn">任务列表</button>
             <button id="btn-collection" class="btn">收藏册</button>
@@ -62,6 +61,28 @@
           <div class="menu-clock" id="menu-clock"></div>
           <div class="menu-goal" id="menu-goal"></div>
         </div>
+        <dialog id="mode-picker" class="panel mode-dialog" aria-labelledby="mode-picker-title">
+          <div class="panel-head">
+            <h2 id="mode-picker-title">选择游戏模式</h2>
+            <button id="btn-mode-close" class="icon-btn" aria-label="关闭模式选择">✕</button>
+          </div>
+          <div class="mode-options">
+            <button id="btn-mode-endless" class="mode-choice" autofocus>
+              <span class="mode-icon" aria-hidden="true">
+                <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M22 10 10 46M34 10l12 36M19 18h18M16 28h24M13 39h30"/><path d="m27 9-3 16h8l-5 13" stroke="#ffda93"/></svg>
+              </span>
+              <span class="mode-copy"><b>无尽冲刺</b><small>自由跑酷 · 挑战最高分</small></span>
+              <span class="mode-arrow" aria-hidden="true">›</span>
+            </button>
+            <button id="btn-trip" class="mode-choice">
+              <span class="mode-icon mode-icon-trip" aria-hidden="true">
+                <svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="40" r="7"/><circle cx="43" cy="40" r="7"/><path d="M13 33h17l5-16h7M34 22l9 18M21 27h9M13 33v-5h8l5 12h10"/><path d="M8 19h13v10H8z" fill="currentColor" stroke="none"/></svg>
+              </span>
+              <span class="mode-copy"><b>三站旅行</b><small>90秒 · 骑车送单与寄存</small></span>
+              <span class="mode-arrow" aria-hidden="true">›</span>
+            </button>
+          </div>
+        </dialog>
       </div>
 
       <!-- Shop -->
