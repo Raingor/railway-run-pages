@@ -6,9 +6,9 @@
     <meta name="theme-color" content="#251b29" />
     <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <title>霓虹轨道 · 万圣奇妙夜 | Halloween Express</title>
-    <script type="module" crossorigin src="./assets/main-BB2BAZsp.js"></script>
+    <script type="module" crossorigin src="./assets/main-B2zWMJSc.js"></script>
     <link rel="modulepreload" crossorigin href="./assets/Config-BccD8gUY.js">
-    <link rel="stylesheet" crossorigin href="./assets/main-REsH2q4I.css">
+    <link rel="stylesheet" crossorigin href="./assets/main-DHGyavGB.css">
   </head>
   <body>
     <canvas id="game"></canvas>
@@ -29,9 +29,9 @@
         <div id="hud-feedback" class="hud-feedback hidden" role="status" aria-live="polite"></div>
         <div id="hud-goal" class="hud-goal"></div>
         <div id="hud-trip" class="trip-hud" hidden>
-          <div class="trip-hud-heading"><b id="trip-stage"></b><span id="trip-clock"></span></div>
+          <div class="trip-hud-heading"><b id="trip-stage"></b><span id="trip-cargo"></span><span id="trip-clock"></span></div>
           <div class="trip-progress"><i id="trip-progress"></i></div>
-          <p id="trip-cargo"></p><p id="trip-next"></p>
+          <p id="trip-next"></p>
         </div>
         <div id="hud-story" class="hud-story hidden" role="status" aria-live="polite"><b id="hud-story-title"></b><span id="hud-story-text"></span></div>
         <div class="hud-powerups" id="hud-powerups"></div>
@@ -154,6 +154,7 @@
       <div id="pause" class="screen hidden">
         <div class="panel">
           <h2>暂停中</h2>
+          <p id="pause-goal" class="short-goal-ticket" hidden></p>
           <div class="menu-buttons">
             <button id="btn-resume" class="btn btn-primary">继续游戏</button>
             <button id="btn-restart" class="btn">重新开始</button>
